@@ -1,0 +1,30 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-class-properties",
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css"
+    }, "antd"],
+    ["import", {
+      "libraryName": "lyxcool-test",
+      "style": true
+    }, "lyxcool-test"]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel",
+      ]
+    }
+  }
+}
