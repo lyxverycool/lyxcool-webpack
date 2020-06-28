@@ -50,7 +50,7 @@ let webpackConfig = {
       //   loader: 'eslint-loader',
       //   exclude: /node_modules/,
       // },
-      { test: /\.js$/, exclude: /(node_modules)/, use: ['babel-loader'] },
+      { test: /\.js$/, exclude: /(node_modules)/, use: ['babel-loader?cacheDirectory=true'] },
       {
         test: /\.css$/,
         use: [
@@ -82,8 +82,8 @@ let webpackConfig = {
             loader: 'less-loader',
             options: {
               modifyVars: {
-                'primary-color': '#1DA57A;',
-                'link-color': '#1DA57A;',
+                'primary-color': 'rgba(104,198,156,1);',
+                'link-color': 'rgba(104,198,156,1);',
                 'border-radius-base': '2px',
               },
               javascriptEnabled: true,
