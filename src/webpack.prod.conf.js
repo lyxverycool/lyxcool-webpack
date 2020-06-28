@@ -15,7 +15,7 @@ const ExtractCSS = new MiniCssExtractPlugin({
 
 const plugins = [
   new CleanWebpackPlugin(['dist'], {
-    root: resolvePath('../'),
+    root: resolvePath('./'),
     verbose: true,
   }),
   ExtractCSS,
@@ -26,7 +26,6 @@ if (NODE_ENV !== 'production') {
 }
 
 module.exports = {
-  mode: 'production',
   entry: {
     app: [resolvePath('src/index.js')],
     vendor: [

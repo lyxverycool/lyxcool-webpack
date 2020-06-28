@@ -4,7 +4,6 @@ const { resolve } = require('path')
 const resolvePath = (relativePath) => resolve(process.cwd(), relativePath)
 
 module.exports = {
-  mode: 'development',
   devtool: 'source-map',
   entry: {
     app: [

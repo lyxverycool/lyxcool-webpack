@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const merge = require('webpack-merge')
 const path = require('path')
 const { resolve } = require('path')
 const resolvePath = (relativePath) => resolve(process.cwd(), relativePath)
@@ -32,7 +31,10 @@ const nodeEnvDot = new DotenvWebpack({
   systemvars: true,
 })
 
-const webpackConfig = env => ({
+//env为webpack的环境非node环境
+const env = process.env.DEV_SERVER ? 'development' : 'production'
+
+let webpackConfig = {
   entry: {},
   output: {
     publicPath: env === 'development' ? '/' : '/',
@@ -132,9 +134,17 @@ const webpackConfig = env => ({
     commonDot,
     nodeEnvDot,
   ],
+}
+
+const mergeConfig = env == 'development' ? developmentConfig : productionConfig
+
+Object.keys(mergeConfig).forEach(i => {
+  if (i !== 'plugins') {
+    webpackConfig[i] = mergeConfig[i]
+  } else {
+    webpackConfig[i] = [...mergeConfig[i], ...webpackConfig[i]]
+  }
 })
 
-module.exports = env => {
-  const config = env === 'production' ? productionConfig : developmentConfig
-  return merge(webpackConfig(env), config)
-}
+module.exports = webpackConfig
+

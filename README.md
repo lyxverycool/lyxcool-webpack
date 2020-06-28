@@ -11,19 +11,25 @@
 ### 3.使用
 
 ```javascript
-const webpackConfig = require('lyxcool-webpack')
+const  { webpackConfig }  = require('lyxcool-webpack')
 
 module.exports = webpackConfig
 ```
 
-### 4.案例使用
+### 4.案例
 
   [https://github.com/lyxverycool/react-csr-templete](https://github.com/lyxverycool/react-csr-templete)
 
   目前只支持react 客户端渲染
 
-### 4.扩展
-    
-     只是写了个基础框架 若需代理修改路径等扩展可以修改源码编译
+### 5.扩展
+
+可以自定义webpack的配置
+
+if (process.env.DEV_SERVER) {
+  webpackConfig.devServer.port = 12306
+  ....
+}
+
 
 
