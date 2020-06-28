@@ -21,9 +21,9 @@ const plugins = [
   ExtractCSS,
 ]
 
-if (NODE_ENV !== 'production') {
-  plugins.push(new BundleAnalyzerPlugin())
-}
+// if (NODE_ENV !== 'production') {
+//   plugins.push(new BundleAnalyzerPlugin())
+// }
 
 module.exports = {
   entry: {
