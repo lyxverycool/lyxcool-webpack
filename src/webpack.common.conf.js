@@ -118,6 +118,7 @@ let webpackConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
+      iconFontLink: process.env.ICON_FONT_LINK,
       template: resolvePath('src/index.html'),
       favicon: resolvePath('src/images/favicon.ico'),
       minify: {
