@@ -16,7 +16,7 @@ Dotenv.config({
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 const DotenvWebpack = require('dotenv-webpack')
 const productionConfig = require('./webpack.prod.conf.js')
 const developmentConfig = require('./webpack.dev.conf.js')
@@ -39,8 +39,9 @@ let webpackConfig = {
   output: {
     publicPath: env === 'development' ? '/' : '/',
     path: resolvePath('dist'),
-    filename: env === 'development' ? 'js/[name]-[hash:5].bundle.js' : 'js/[name].[chunkhash:8].js',
+    filename: env === 'development' ? 'js/bundle.js' : 'js/[name].[chunkhash:8].js',
     chunkFilename: env === 'development' ? 'js/[name]-[hash:5].chunk.js' : 'js/[name].[chunkhash:8].js',
+    sourceMapFilename: env === 'development' ? '[file].map' : 'source_map/[file].map',
   },
   module: {
     rules: [
@@ -113,6 +114,9 @@ let webpackConfig = {
       '@': resolvePath('src/component/'),
     },
   },
+  performance: {
+    maxAssetSize: 1024 * 100,
+  },
   mode: env === 'development' ? 'development' : 'production',
   optimization: {},
   plugins: [
@@ -128,10 +132,10 @@ let webpackConfig = {
     }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru|zh-cn|en/),
     new ProgressBarPlugin(),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true
-    }),
+    // new WorkboxPlugin.GenerateSW({
+    //   clientsClaim: true,
+    //   skipWaiting: true
+    // }),
     commonDot,
     nodeEnvDot,
   ],

@@ -1,24 +1,21 @@
 const webpack = require('webpack')
-const path = require('path')
 const { resolve } = require('path')
 const resolvePath = (relativePath) => resolve(process.cwd(), relativePath)
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     app: [
       '@babel/polyfill',
-      'react-hot-loader/patch',
       resolvePath('src/index.js')
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, '../dist/'),
-    host: 'localhost',
+    host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     hot: true,
-    overlay: true,
     historyApiFallback: true,
+    disableHostCheck: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
