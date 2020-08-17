@@ -1,6 +1,6 @@
 {
   "name": "lyxcool-webpack",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "webpack",
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "autoprefixer": "7.2.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.2",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-import": "^1.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
@@ -35,7 +36,6 @@
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
     "file-loader": "1.1.6",
-    "react-hot-loader": "^4.12.12",
     "html-webpack-plugin": "^3.2.0",
     "less": "2.7.3",
     "less-loader": "4.0.5",
@@ -43,6 +43,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "2.0.10",
     "progress-bar-webpack-plugin": "^1.11.0",
+    "react-hot-loader": "^4.12.12",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "url-loader": "0.5.9",
