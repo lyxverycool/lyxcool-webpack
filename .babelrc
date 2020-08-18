@@ -10,21 +10,18 @@
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
     ["import", {
       "libraryName": "antd",
       "libraryDirectory": "es",
-      "style": "css"
-    }, "antd"],
-    ["import", {
-      "libraryName": "lyxcool-test",
       "style": true
-    }, "lyxcool-test"]
+    }, "antd"]
   ],
   "env": {
     "development": {
       "plugins": [
-        "dynamic-import-node",
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        "dynamic-import-node"
       ]
     }
   }
