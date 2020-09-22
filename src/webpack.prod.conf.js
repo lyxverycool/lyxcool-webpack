@@ -27,7 +27,7 @@ const plugins = [
 
 module.exports = {
   entry: {
-    app: [resolvePath('src/index.js')],
+    app: [resolvePath('src/index')],
     vendor: [
       'react',
       'react-dom',

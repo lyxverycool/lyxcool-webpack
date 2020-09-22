@@ -1,6 +1,6 @@
 {
   "name": "lyxcool-webpack",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "webpack",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,6 @@
   "dependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
-    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
@@ -25,10 +24,12 @@
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.0.0",
     "autoprefixer": "7.2.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.2",
+    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
     "babel-plugin-import": "^1.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",

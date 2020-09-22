@@ -51,7 +51,7 @@ let webpackConfig = {
       //   loader: 'eslint-loader',
       //   exclude: /node_modules/,
       // },
-      { test: /\.js$/, exclude: /(node_modules)/, use: ['babel-loader?cacheDirectory=true'] },
+      { test: /\.(js|jsx|ts|tsx)$/, exclude: /(node_modules)/, use: ['babel-loader?cacheDirectory=true'] },
       {
         test: /\.css$/,
         use: [
@@ -108,7 +108,7 @@ let webpackConfig = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.less', '.css'],
+    extensions: [".ts", ".tsx", '.js', '.jsx', '.json', '.less', '.css'],
     alias: {
       '~': resolvePath('src/'),
       '@': resolvePath('src/component/'),
