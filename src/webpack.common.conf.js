@@ -13,6 +13,7 @@ Dotenv.config({
   path: `${envPath}/${NODE_ENV}.env`,
 })
 
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
@@ -120,6 +121,7 @@ let webpackConfig = {
   mode: env === 'development' ? 'development' : 'production',
   optimization: {},
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       iconFontLink: process.env.ICON_FONT_LINK,
