@@ -1,6 +1,6 @@
 {
   "name": "lyxcool-webpack",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "webpack",
   "main": "lib/index.js",
   "scripts": {
@@ -38,8 +38,8 @@
     "dotenv-webpack": "^1.7.0",
     "file-loader": "1.1.6",
     "html-webpack-plugin": "^3.2.0",
-    "less": "2.7.3",
-    "less-loader": "4.0.5",
+    "less": "3.9.0",
+    "less-loader": "4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "2.0.10",
