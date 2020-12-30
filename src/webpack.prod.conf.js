@@ -14,7 +14,7 @@ const ExtractCSS = new MiniCssExtractPlugin({
 })
 
 const plugins = [
-  new CleanWebpackPlugin(['dist'], {
+  new CleanWebpackPlugin(['dist/js', 'dist/css'], {
     root: resolvePath('./'),
     verbose: true,
   }),
@@ -28,11 +28,11 @@ if (ANALYZE) {
 module.exports = {
   entry: {
     app: [resolvePath('src/index')],
-    vendor: [
-      'react',
-      'react-dom',
-      'react-router-dom',
-    ],
+    // vendor: [
+    //   'react',
+    //   'react-dom',
+    //   'react-router-dom',
+    // ],
   },
   optimization: {
     minimizer: [// 压缩js

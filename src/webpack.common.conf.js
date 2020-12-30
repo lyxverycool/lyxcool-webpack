@@ -17,6 +17,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const AutoDllPlugin = require('autodll-webpack-plugin')
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 const DotenvWebpack = require('dotenv-webpack')
 const productionConfig = require('./webpack.prod.conf.js')
@@ -123,6 +124,7 @@ let webpackConfig = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
+      inject: true,
       filename: 'index.html',
       iconFontLink: process.env.ICON_FONT_LINK,
       template: resolvePath('src/index.html'),
@@ -131,6 +133,19 @@ let webpackConfig = {
         removeComments: true,
         collapseWhitespace: true,
       },
+    }),
+    new AutoDllPlugin({
+      inject: true, // will inject the DLL bundles to index.html
+      filename: '[name].dll.js',
+      entry: {
+        vendor: [
+          'react',
+          'react-dom',
+          'react-router-dom',
+          'axios',
+          'qs'
+        ]
+      }
     }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru|zh-cn|en/),
     new ProgressBarPlugin(),
