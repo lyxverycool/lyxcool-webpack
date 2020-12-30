@@ -134,19 +134,6 @@ let webpackConfig = {
         collapseWhitespace: true,
       },
     }),
-    new AutoDllPlugin({
-      inject: true, // will inject the DLL bundles to index.html
-      filename: '[name].dll.js',
-      entry: {
-        vendor: [
-          'react',
-          'react-dom',
-          'react-router-dom',
-          'axios',
-          'qs'
-        ]
-      }
-    }),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru|zh-cn|en/),
     new ProgressBarPlugin(),
     // new WorkboxPlugin.GenerateSW({
