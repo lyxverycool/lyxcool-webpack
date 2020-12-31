@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const { resolve } = require('path')
 const resolvePath = (relativePath) => resolve(process.cwd(), relativePath)
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -21,6 +22,7 @@ module.exports = {
     disableHostCheck: true
   },
   plugins: [
+    new ReactRefreshWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
