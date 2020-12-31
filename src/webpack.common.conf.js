@@ -123,7 +123,6 @@ let webpackConfig = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
-      inject: true,
       filename: 'index.html',
       iconFontLink: process.env.ICON_FONT_LINK,
       template: resolvePath('src/index.html'),

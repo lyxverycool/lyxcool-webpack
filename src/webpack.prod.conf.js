@@ -3,7 +3,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');// js压缩
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // css压缩
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const AutoDllPlugin = require('autodll-webpack-plugin')
 
 const ANALYZE = process.env.ANALYZE || false
 const { resolve } = require('path')
@@ -15,22 +14,9 @@ const ExtractCSS = new MiniCssExtractPlugin({
 })
 
 const plugins = [
-  new CleanWebpackPlugin(['dist/js', 'dist/css'], {
+  new CleanWebpackPlugin(['dist'], {
     root: resolvePath('./'),
     verbose: true,
-  }),
-  new AutoDllPlugin({
-    inject: true, // will inject the DLL bundles to index.html
-    filename: '[name].dll.js',
-    entry: {
-      vendor: [
-        'react',
-        'react-dom',
-        'react-router-dom',
-        'axios',
-        'qs'
-      ]
-    }
   }),
   ExtractCSS,
 ]
@@ -42,11 +28,13 @@ if (ANALYZE) {
 module.exports = {
   entry: {
     app: [resolvePath('src/index')],
-    // vendor: [
-    //   'react',
-    //   'react-dom',
-    //   'react-router-dom',
-    // ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'axios',
+      'qs'
+    ]
   },
   optimization: {
     minimizer: [// 压缩js

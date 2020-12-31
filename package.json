@@ -1,6 +1,6 @@
 {
   "name": "lyxcool-webpack",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "webpack",
   "main": "lib/index.js",
   "scripts": {
@@ -26,7 +26,6 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.0.0",
-    "autodll-webpack-plugin": "^0.4.2",
     "autoprefixer": "7.2.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.2",
